@@ -1,0 +1,8 @@
+FROM node:alpine
+ENV http_proxy http://maracpoi5.alpha.inet:3128
+ENV https_proxy http://maracpoi5.alpha.inet:3128
+WORKDIR '/app'
+COPY ./package.json ./
+RUN npm install
+COPY . .
+CMD ["npm", "run", "start"]
